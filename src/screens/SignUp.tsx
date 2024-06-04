@@ -7,12 +7,12 @@ import {Button} from "@components/Button";
 import {useNavigation} from "@react-navigation/native";
 import {AuthNavigatorRoutesProps} from "@routes/auth.routes";
 
-export function SignIn() {
+export function SignUp() {
 
     const navigation = useNavigation<AuthNavigatorRoutesProps>();
 
-    function handleNewAccount() {
-        navigation.navigate('signUp')
+    function handleGoBack() {
+        navigation.navigate('signIn')
     }
 
     return (
@@ -38,9 +38,13 @@ export function SignIn() {
 
                 <Center>
                     <Heading color="gray.100" fontSize="xl" mb={6} fontFamily="heading">
-                        Acesse sua Conta
+                        Crie sua Conta
                     </Heading>
                 </Center>
+
+                <Input
+                    placeholder="Nome"
+                />
 
                 <Input
                     placeholder="E-mail"
@@ -53,25 +57,15 @@ export function SignIn() {
                 />
 
                 <Button
-                    title="Acessar"
+                    title="Criar e acessar"
                 />
 
-                <Center mt={24}>
-                    <Text
-                        color="gray.100"
-                        fontSize="sm"
-                        mb={3}
-                        fontFamily="body"
-                    >
-                        Ainda não tem acesso?
-                    </Text>
-
-                    <Button
-                        title="Criar conta"
-                        variant="outline"
-                        onPress={handleNewAccount}
-                    />
-                </Center>
+                <Button
+                    title="Voltar para o login"
+                    variant="outline"
+                    mt={24}
+                    onPress={handleGoBack}
+                />
 
             </VStack>
         </ScrollView>
